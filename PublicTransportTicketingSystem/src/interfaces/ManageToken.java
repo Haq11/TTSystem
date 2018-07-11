@@ -27,22 +27,160 @@ public class ManageToken extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lbl_AccountDetails_Token_Note = new javax.swing.JLabel();
+        btn_AccountDetails_Cash_Top_Up = new javax.swing.JButton();
+        btn_AccountDetails_Net_Token = new javax.swing.JButton();
+        btn_AccountDetails_Exit = new javax.swing.JButton();
+        lbl_AccountDetails_Name = new javax.swing.JLabel();
+        lbl_AccountDetails_Name_Load = new javax.swing.JLabel();
+        lbl_AccountDetails_Current_Balance = new javax.swing.JLabel();
+        lbl_AccountDetails_Current_Balance_Load = new javax.swing.JLabel();
+        lbl_AccountDetails_Name1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        lbl_AccountDetails_Token_Note.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        lbl_AccountDetails_Token_Note.setText("Available Tokens");
+
+        btn_AccountDetails_Cash_Top_Up.setBackground(new java.awt.Color(255, 255, 255));
+        btn_AccountDetails_Cash_Top_Up.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btn_AccountDetails_Cash_Top_Up.setText("Top up Account");
+        btn_AccountDetails_Cash_Top_Up.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(204, 204, 204)));
+        btn_AccountDetails_Cash_Top_Up.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_AccountDetails_Cash_Top_UpActionPerformed(evt);
+            }
+        });
+
+        btn_AccountDetails_Net_Token.setBackground(new java.awt.Color(255, 255, 255));
+        btn_AccountDetails_Net_Token.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btn_AccountDetails_Net_Token.setText("Get New Token");
+        btn_AccountDetails_Net_Token.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(204, 204, 204)));
+        btn_AccountDetails_Net_Token.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_AccountDetails_Net_TokenActionPerformed(evt);
+            }
+        });
+
+        btn_AccountDetails_Exit.setBackground(new java.awt.Color(255, 255, 255));
+        btn_AccountDetails_Exit.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btn_AccountDetails_Exit.setText("Back");
+        btn_AccountDetails_Exit.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(204, 204, 204)));
+        btn_AccountDetails_Exit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_AccountDetails_ExitActionPerformed(evt);
+            }
+        });
+
+        lbl_AccountDetails_Name.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbl_AccountDetails_Name.setText("Name :");
+
+        lbl_AccountDetails_Name_Load.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lbl_AccountDetails_Name_Load.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        lbl_AccountDetails_Current_Balance.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbl_AccountDetails_Current_Balance.setText("Current Balance :");
+
+        lbl_AccountDetails_Current_Balance_Load.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
+        lbl_AccountDetails_Current_Balance_Load.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        lbl_AccountDetails_Name1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        lbl_AccountDetails_Name1.setText("Manage Token");
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbl_AccountDetails_Token_Note)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lbl_AccountDetails_Name, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(88, 88, 88)
+                                .addComponent(lbl_AccountDetails_Name_Load, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lbl_AccountDetails_Current_Balance)
+                                .addGap(18, 18, 18)
+                                .addComponent(lbl_AccountDetails_Current_Balance_Load, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(138, 138, 138)
+                                .addComponent(lbl_AccountDetails_Name1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(btn_AccountDetails_Cash_Top_Up, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40)
+                        .addComponent(btn_AccountDetails_Net_Token, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(btn_AccountDetails_Exit, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(lbl_AccountDetails_Name1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(38, 38, 38)
+                        .addComponent(lbl_AccountDetails_Name_Load, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbl_AccountDetails_Current_Balance_Load, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(125, 125, 125)
+                        .addComponent(lbl_AccountDetails_Name, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lbl_AccountDetails_Current_Balance)))
+                .addGap(18, 18, 18)
+                .addComponent(lbl_AccountDetails_Token_Note)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn_AccountDetails_Cash_Top_Up, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_AccountDetails_Net_Token, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_AccountDetails_Exit, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
-        setSize(new java.awt.Dimension(416, 339));
-        setLocationRelativeTo(null);
+        pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_AccountDetails_Cash_Top_UpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AccountDetails_Cash_Top_UpActionPerformed
+        // TODO add your handling code here:
+//        PaymentOptionUI paymentOptionUI = new PaymentOptionUI(this, account.getAccountId());
+//        paymentOptionUI.setVisible(true);
+    }//GEN-LAST:event_btn_AccountDetails_Cash_Top_UpActionPerformed
+
+    private void btn_AccountDetails_Net_TokenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AccountDetails_Net_TokenActionPerformed
+
+//        TokenOptionUI tokenOptionUI = new TokenOptionUI(this, account.getAccountId());
+//        tokenOptionUI.setVisible(true);
+
+        //        this.setVisible(false);
+    }//GEN-LAST:event_btn_AccountDetails_Net_TokenActionPerformed
+
+    private void btn_AccountDetails_ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AccountDetails_ExitActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_AccountDetails_ExitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -80,5 +218,16 @@ public class ManageToken extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_AccountDetails_Cash_Top_Up;
+    private javax.swing.JButton btn_AccountDetails_Exit;
+    private javax.swing.JButton btn_AccountDetails_Net_Token;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JLabel lbl_AccountDetails_Current_Balance;
+    private javax.swing.JLabel lbl_AccountDetails_Current_Balance_Load;
+    private javax.swing.JLabel lbl_AccountDetails_Name;
+    private javax.swing.JLabel lbl_AccountDetails_Name1;
+    private javax.swing.JLabel lbl_AccountDetails_Name_Load;
+    private javax.swing.JLabel lbl_AccountDetails_Token_Note;
     // End of variables declaration//GEN-END:variables
 }

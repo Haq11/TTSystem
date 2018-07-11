@@ -180,6 +180,10 @@ public class ManageToken extends javax.swing.JFrame {
 
     private void btn_AccountDetails_ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AccountDetails_ExitActionPerformed
         // TODO add your handling code here:
+        
+        Payment p = new Payment();
+        p.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btn_AccountDetails_ExitActionPerformed
 
     /**

@@ -24,7 +24,7 @@ public class Journey_Final {
     public static void main(String[] args) {
         
         Journey_Serial.loadJourney();
-        //testsetofcities(); 
+        testsetofcities(); 
         
         Journey_Serial.saveJourney();
         
@@ -63,10 +63,10 @@ public class Journey_Final {
         
         SetOfTokens tokens = Journey_Serial.getJourney().getTokens();
 
-        Tokens t1 = new Tokens(1000, "Shazan Satthar", 100);
-        Tokens t2 = new Tokens(1001, "Naveen Lakjaya", 100);
-        Tokens t3 = new Tokens(1002, "Shehan Sachith", 100);
-        Tokens t4 = new Tokens(1003, "Kanishka", 100);
+        Tokens t1 = new Tokens(1000, "Shazan Satthar", 100, "Colombo Fort","Moratuwa");
+        Tokens t2 = new Tokens(1001, "Shazan Satthar", 100, "Colombo Fort","Panadura");
+        Tokens t3 = new Tokens(1002, "Shazan Satthar", 100, "Colombo Fort","Matara");
+        Tokens t4 = new Tokens(1003, "Shazan Satthar", 100, "Colombo Fort","Moratuwa");
        
 
         tokens.addToken(t1);

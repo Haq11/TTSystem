@@ -8,14 +8,13 @@ package publictransportticketingsystem;
 import classes.SetOfCities;
 import classes.SetOfRoutes;
 import classes.SetOfTokens;
+import classes.SetOfUsers;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -26,6 +25,7 @@ public class Journey_Serial implements Serializable {
     private SetOfCities cities;
     private SetOfRoutes routes;
     private SetOfTokens tokens;
+    private SetOfUsers users;
 
     private static Journey_Serial journey;
     private static final String Serial_FILE = "./Journey.object";
@@ -34,6 +34,7 @@ public class Journey_Serial implements Serializable {
         cities = new SetOfCities();
         routes = new SetOfRoutes();
         tokens = new SetOfTokens();
+        users= new SetOfUsers();
     }
 
     public SetOfCities getCities() {
@@ -46,6 +47,10 @@ public class Journey_Serial implements Serializable {
 
     public SetOfTokens getTokens() {
         return tokens;
+    }
+    
+    public SetOfUsers getUsers(){
+        return users;
     }
 
     public static Journey_Serial getJourney() {

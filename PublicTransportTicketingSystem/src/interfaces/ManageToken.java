@@ -91,15 +91,23 @@ public class ManageToken extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Start Destination", "End Destination"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                true, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -161,13 +169,21 @@ public class ManageToken extends javax.swing.JFrame {
                 .addContainerGap(27, Short.MAX_VALUE))
         );
 
-        pack();
+        setSize(new java.awt.Dimension(538, 521));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_AccountDetails_Cash_Top_UpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AccountDetails_Cash_Top_UpActionPerformed
         // TODO add your handling code here:
+        TopUpAccount t = new TopUpAccount();
+        t.setVisible(true);
+        this.dispose();
+        
+        
 //        PaymentOptionUI paymentOptionUI = new PaymentOptionUI(this, account.getAccountId());
 //        paymentOptionUI.setVisible(true);
+
+          
     }//GEN-LAST:event_btn_AccountDetails_Cash_Top_UpActionPerformed
 
     private void btn_AccountDetails_Net_TokenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AccountDetails_Net_TokenActionPerformed
@@ -176,13 +192,18 @@ public class ManageToken extends javax.swing.JFrame {
 //        tokenOptionUI.setVisible(true);
 
         //        this.setVisible(false);
+        
+        GetNewToken g = new GetNewToken();
+        g.setVisible(true);
+        this.dispose();
+        
     }//GEN-LAST:event_btn_AccountDetails_Net_TokenActionPerformed
 
     private void btn_AccountDetails_ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AccountDetails_ExitActionPerformed
         // TODO add your handling code here:
         
-        Payment p = new Payment();
-        p.setVisible(true);
+        Home h = new Home();
+        h.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_AccountDetails_ExitActionPerformed
 

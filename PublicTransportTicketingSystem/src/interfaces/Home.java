@@ -5,11 +5,13 @@
  */
 package interfaces;
 
+import java.io.Serializable;
+
 /**
  *
  * @author HaqHfz
  */
-public class Home extends javax.swing.JFrame {
+public class Home extends javax.swing.JFrame implements Serializable{
 
     /**
      * Creates new form Home
@@ -137,6 +139,11 @@ public class Home extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        
+        DynamicTravel d = new DynamicTravel();
+        d.setVisible(true);
+        this.dispose();
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

@@ -5,6 +5,13 @@
  */
 package interfaces;
 
+import classes.Routes;
+import classes.Users;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import publictransportticketingsystem.Journey_Serial;
+
 /**
  *
  * @author HaqHfz
@@ -16,6 +23,19 @@ public class ManagerUI extends javax.swing.JFrame {
      */
     public ManagerUI() {
         initComponents();
+        
+        Routes[] routes = Journey_Serial.getJourney().getRoutes().getAllRoutes();
+        DefaultTableModel mode1 = (DefaultTableModel) jTable2.getModel();
+        mode1.setRowCount(0);
+        for (Routes route : routes) {
+           
+                mode1.addRow(new Object[]{route.routenumber(), route.startdestination(), route.enddestination(), route.getStops()});
+            }
+
+        
+        
+       
+        
     }
 
     /**
@@ -28,132 +48,248 @@ public class ManagerUI extends javax.swing.JFrame {
     private void initComponents() {
 
         graphContainer = new javax.swing.JPanel();
-        panel_Manager_Filter = new javax.swing.JPanel();
-        lbl_Manager_Network = new javax.swing.JLabel();
-        lbl_Manager_Route = new javax.swing.JLabel();
-        cmb_Manager_Network = new javax.swing.JComboBox<>();
-        cmb_Manager_Route = new javax.swing.JComboBox<>();
-        lbl_Manager_StartTime = new javax.swing.JLabel();
-        lbl_Manager_EndTime = new javax.swing.JLabel();
-        lbl_Manager_Note = new javax.swing.JLabel();
-        btn_Manager_Filter1 = new javax.swing.JButton();
-        btn_Manager_Filter = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        routenumber = new javax.swing.JTextField();
+        startdestination = new javax.swing.JTextField();
+        enddestination = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        stop = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        panel_Manager_Filter.setLayout(null);
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        lbl_Manager_Network.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lbl_Manager_Network.setText("Network :");
-        panel_Manager_Filter.add(lbl_Manager_Network);
-        lbl_Manager_Network.setBounds(20, 90, 80, 20);
-
-        lbl_Manager_Route.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lbl_Manager_Route.setText("Route :");
-        panel_Manager_Filter.add(lbl_Manager_Route);
-        lbl_Manager_Route.setBounds(20, 140, 70, 17);
-
-        cmb_Manager_Network.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cmb_Manager_Network.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setText("Add Route");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmb_Manager_NetworkrefreshRoutes(evt);
+                jButton1ActionPerformed(evt);
             }
         });
-        panel_Manager_Filter.add(cmb_Manager_Network);
-        cmb_Manager_Network.setBounds(110, 90, 130, 20);
 
-        cmb_Manager_Route.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        panel_Manager_Filter.add(cmb_Manager_Route);
-        cmb_Manager_Route.setBounds(110, 140, 130, 20);
+        jButton2.setText("Edit Route");
 
-        lbl_Manager_StartTime.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lbl_Manager_StartTime.setText("Start Time :");
-        panel_Manager_Filter.add(lbl_Manager_StartTime);
-        lbl_Manager_StartTime.setBounds(20, 190, 90, 20);
+        jButton3.setText("Delete Route");
 
-        lbl_Manager_EndTime.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lbl_Manager_EndTime.setText("End Time :");
-        panel_Manager_Filter.add(lbl_Manager_EndTime);
-        lbl_Manager_EndTime.setBounds(20, 240, 80, 17);
+        jButton4.setText("Calculate Cost");
 
-        lbl_Manager_Note.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbl_Manager_Note.setText("Select Filters");
-        panel_Manager_Filter.add(lbl_Manager_Note);
-        lbl_Manager_Note.setBounds(90, 30, 90, 20);
-
-        btn_Manager_Filter1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        btn_Manager_Filter1.setText("Filter");
-        btn_Manager_Filter1.addActionListener(new java.awt.event.ActionListener() {
+        jButton5.setText("Back");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_Manager_Filter1ActionPerformed(evt);
+                jButton5ActionPerformed(evt);
             }
         });
-        panel_Manager_Filter.add(btn_Manager_Filter1);
-        btn_Manager_Filter1.setBounds(170, 330, 71, 31);
 
-        btn_Manager_Filter.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        btn_Manager_Filter.setText("ADD Route");
-        btn_Manager_Filter.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_Manager_FilterActionPerformed(evt);
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Route Number", "Start Destination", "End Destination", "Stops"
+            }
+        ));
+        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable2MouseClicked(evt);
             }
         });
-        panel_Manager_Filter.add(btn_Manager_Filter);
-        btn_Manager_Filter.setBounds(20, 330, 120, 31);
+        jScrollPane2.setViewportView(jTable2);
+
+        jLabel1.setText("Route Number");
+
+        jLabel2.setText("Start Destination");
+
+        jLabel3.setText("End Destination");
+
+        jLabel4.setText("Stops");
+
+        stop.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                stopActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        jLabel5.setText("Manage Route");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panel_Manager_Filter, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(graphContainer, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(215, 215, 215)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel4))
+                                .addGap(74, 74, 74)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(routenumber, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(startdestination, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(enddestination, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(stop, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(223, 223, 223))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 732, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(27, 27, 27))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(38, 38, 38)))))
+                        .addComponent(graphContainer, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(239, 239, 239)
+                        .addComponent(jLabel5)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(69, Short.MAX_VALUE)
+                .addGap(19, 19, 19)
+                .addComponent(jLabel5)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(graphContainer, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(panel_Manager_Filter, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(graphContainer, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(routenumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(startdestination, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(enddestination, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(stop, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(13, 13, 13)))
                 .addContainerGap())
         );
 
-        pack();
+        setSize(new java.awt.Dimension(819, 746));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cmb_Manager_NetworkrefreshRoutes(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmb_Manager_NetworkrefreshRoutes
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-//        loadRoutes();
-    }//GEN-LAST:event_cmb_Manager_NetworkrefreshRoutes
+        Home m = new Home();
+        m.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void btn_Manager_FilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Manager_FilterActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        //        if (cmb_Manager_Network.getSelectedItem() == null) {
-            //            JOptionPane.showMessageDialog(null, "Please select a Network", "Error", JOptionPane.PLAIN_MESSAGE);
-            //        } else if (cmb_Manager_Route.getSelectedItem() == null) {
-            //            JOptionPane.showMessageDialog(null, "Please select a Route", "Error", JOptionPane.PLAIN_MESSAGE);
-            //        } else if (dtp_Manager_StartTime.getDate() == null) {
-            //            JOptionPane.showMessageDialog(null, "Please select a start Date", "Error", JOptionPane.PLAIN_MESSAGE);
-            //        } else if (dtp_Manager_EndTime.getDate() == null) {
-            //            JOptionPane.showMessageDialog(null, "Please select an end Date", "Error", JOptionPane.PLAIN_MESSAGE);
-            //        } else {
-            //            filterRecords();
-            //        }
-    }//GEN-LAST:event_btn_Manager_FilterActionPerformed
+        
+        
+        try {
+            Integer Route = new Integer(routenumber.getText());
+            String Startdestination = startdestination.getText();
+            String Enddestination = enddestination.getText();
+            String Stops = stop.getText();
+           
+  
+  
+         
+    
+       //Journey_Serial.getJourney().getRoutes().addRoute(new Routes(Route, Startdestination, Enddestination,Stops));
+            JOptionPane.showMessageDialog(rootPane, "Successfuly Added");
+            Journey_Serial.saveJourney();
+        } catch (NumberFormatException nfe) {
 
-    private void btn_Manager_Filter1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Manager_Filter1ActionPerformed
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_btn_Manager_Filter1ActionPerformed
+        int r=jTable2.getSelectedRow();
+      
+        String Routenumber=jTable2.getValueAt(r,0).toString();
+        
+        String StartDestination =jTable2.getValueAt(r, 1).toString();
+        
+        String EndDestination =jTable2.getValueAt(r, 2).toString();
+        
+        String Stops =jTable2.getValueAt(r, 3).toString();
+        
+        routenumber.setText(Routenumber);
+        startdestination.setText(StartDestination);
+        enddestination.setText(EndDestination);
+        stop.setText(Stops);
+        
+        
+        
+    }//GEN-LAST:event_jTable2MouseClicked
+
+    private void stopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stopActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_stopActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
+          Journey_Serial.loadJourney();
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
@@ -185,16 +321,23 @@ public class ManagerUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_Manager_Filter;
-    private javax.swing.JButton btn_Manager_Filter1;
-    private javax.swing.JComboBox<String> cmb_Manager_Network;
-    private javax.swing.JComboBox<String> cmb_Manager_Route;
+    private javax.swing.JTextField enddestination;
     private javax.swing.JPanel graphContainer;
-    private javax.swing.JLabel lbl_Manager_EndTime;
-    private javax.swing.JLabel lbl_Manager_Network;
-    private javax.swing.JLabel lbl_Manager_Note;
-    private javax.swing.JLabel lbl_Manager_Route;
-    private javax.swing.JLabel lbl_Manager_StartTime;
-    private javax.swing.JPanel panel_Manager_Filter;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable2;
+    private javax.swing.JTextField routenumber;
+    private javax.swing.JTextField startdestination;
+    private javax.swing.JTextField stop;
     // End of variables declaration//GEN-END:variables
 }

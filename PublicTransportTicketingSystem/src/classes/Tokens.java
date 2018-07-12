@@ -14,21 +14,26 @@ import java.util.ArrayList;
  */
 public class Tokens implements Serializable {
 
-    private int cardnumber;
+    private int tokennumber;
     private String name;
     private double balance;
+    private String startdestination;
+    private String enddestination;
 
-    public Tokens(int cardnumber, String name, double balance) {
+    public Tokens(int tokennumber, String name, double balance, String startdestination, String enddestination) {
 
-        this.cardnumber = cardnumber;
-        this.name = name;
-        this.balance = balance;
+        this.tokennumber = tokennumber;
+        
+        
+        this.startdestination=startdestination;
+        this.enddestination=enddestination;
+        
 
     }
 
-    public int cardnumber() {
+    public int tokennumber() {
 
-        return cardnumber;
+        return tokennumber;
     }
 
     public String name() {
@@ -41,11 +46,13 @@ public class Tokens implements Serializable {
         return balance;
     }
 
-    public boolean charge(int diff) {
-        if ((balance - diff) > 0) {
-            balance -= diff;
-            return true;
-        }
-        return false;
+    public String startdestination() {
+
+        return startdestination;
     }
+    public String enddestination() {
+
+        return enddestination;
+    }
+    
 }
